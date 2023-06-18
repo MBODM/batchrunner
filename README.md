@@ -9,7 +9,7 @@ A tiny tool to execute batch scripts
 
 ### How it works
 - When executed, the tool is looking for a single command line argument.
-- When found, the command line argument is interpreted as batch script file path.
+- When found, the command line argument is interpreted as file path to a batch script.
 - The tool then starts the given `.bat` script file as new process.
 
 ### Why it exists
