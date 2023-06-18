@@ -19,7 +19,7 @@ My goal was to start a batch script from the Windows 10 Taskbar. But i wasn´t a
 
 - 64-bit Windows
 
-There aren´t any other special requirements. The tool is written in Rust and the release binaries are natively compiled with `rustc` for the Windows x64 platform, assuming you are using some 64-bit Windows (and that's quite likely).
+There aren´t any other special requirements. The tool is written in Rust and the release binaries are natively compiled with `rustc/cargo` for the Windows x64 platform, assuming you are using some 64-bit Windows (and that's quite likely).
 
 ### Notes
 - The tool is written in Rust
