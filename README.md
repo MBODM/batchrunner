@@ -5,7 +5,7 @@ A tiny tool to execute batch scripts
 
 ### What it is
 - It´s a very tiny (~50 lines of code) command line executable for Windows, written in Rust.
-- It´s used to run a specific batch script, which path is given via a command line argument.
+- It´s used to run some given batch script (as path to `.bat` file via command line argument).
 
 ### How it works
 - When executed, it´s looking for a specific command line argument, 
