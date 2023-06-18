@@ -1,5 +1,5 @@
 # batchrunner
-A tiny tool to execute batch scripts
+A tiny tool to execute a batch script
 
 ![Screenshot](screenshot.png)
 
