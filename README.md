@@ -32,8 +32,7 @@ There aren´t any other special requirements. The tool is written in Rust and th
 - ~~Approach-Reason2: Need for `ctrlc` (or `windows-rs` + `SetConsoleCtrlHandler`)~~
 - ~~Approach-Reason3: Way more complexity (maintain child process, stdout, signals)~~
 - ~~And sadly i also forgot what Sean Connery teached us: "_One ping only!_"~~
-
-The release binaries are compiled with following compiler options in `cargo.toml` file:
+- The release binaries are compiled with following compiler options in `cargo.toml` file:
 ```rust
 [profile.release]
 opt-level = 'z'     # Optimize for size.
