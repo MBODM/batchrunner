@@ -5,11 +5,12 @@ A tiny tool to execute batch scripts
 
 ### What it is
 - It´s a very tiny (~50 lines of code) command line executable for Windows, written in Rust.
-- It´s used to run some given batch script (as path to `.bat` file via command line argument).
+- It´s used to run a batch script (path to `.bat` file is given via command line argument).
 
 ### How it works
-- When executed, it´s looking for a specific command line argument, 
-- It just executes a given batch script (`.bat` file).
+- When executed, the tool is looking for a command line argument.
+- When found, the command line argument is used as file path to a `.bat` script file.
+- The tool then starts the given `.bat` script as a new process.
 
 ### Why it exists
 I wasn´t able to successfully add a batch script (`.bat`), or even a link (`.lnk`) to a batch script, to the Windows 10 Taskbar, to start some batch script from there. At least not in a way it works properly. Maybe i´m just too stupid, but all my tries had some issues. So i decided to quickly write a tiny executable, doing that job (starting a `.bat` script) for me. Becaus there are no problems with _adding some executable to the Windows 10 Taskbar_, in contrast to _adding a batch script to the Windows 10 Taskbar_. And that´s the sole reason why this tool even exists. :grin:
