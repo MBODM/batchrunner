@@ -13,7 +13,7 @@ A tiny tool to execute a batch script
 - The tool then starts the given `.bat` file as new process.
 
 ### Why it exists
-My goal was to start a batch script from the Windows 10 Taskbar. But i wasn´t able to successfully add a batch script (`.bat`) to the Taskbar. Or even a link (`.lnk`) to a batch script. At least not in a way it works properly. Maybe i´m just too stupid, but all my tries had some issues. Try it on your own and you will see. 😏
+My goal was to start a batch script from the Windows 10 Taskbar. But i wasn´t able to successfully add a batch script (`.bat`) to the Taskbar. Or even a link (`.lnk`) to a batch script. At least not in a way it works properly. Maybe i´m just too stupid, but all my tries had some issues. Try it on your own and you will see. 😁
 
 So i decided to quickly write a tiny executable, doing that job for me. Because there are no problems with "_adding some executable to the Windows 10 Taskbar_", in contrast to "_adding some batch script to the Windows 10 Taskbar_". And that´s the sole reason why this tool even exists. :grin:
 
