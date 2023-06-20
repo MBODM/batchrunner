@@ -1,36 +1,47 @@
 use std::{env, ffi::OsStr, os::windows::process::CommandExt, path::Path, process::Command};
 
-const ERR_MSG_1: &str = "Too many arguments.";
-const ERR_MSG_2: &str = "Given file not exists.";
-const ERR_MSG_3: &str = "Given file is not a batch script (.bat) file.";
-
 pub fn run() -> Result<String, String> {
     let args = env::args().skip(1).collect::<Vec<_>>();
-    let args_len = args.len();
-    if args_len == 0 {
-        return Ok(String::from(""));
+    if args.len() == 0 {
+        return Ok(String::new());
     }
-    if args_len > 1 {
-        return Err(String::from(ERR_MSG_1));
+    if args.len() >= 2 {
+        return Err(String::from("Too many arguments."));
     }
-    let batch = &args[0];
-    let path = Path::new(batch);
+    let bat = &args[0];
+    let path = Path::new(bat);
+    validate_argument(path)?;
+    run_bat(bat)?;
+    let name = get_file_name(path)?;
+    let msg = format!("{} successfully started", name);
+    Ok(msg)
+}
+
+fn validate_argument(path: &Path) -> Result<(), String> {
     if !path.exists() {
-        return Err(String::from(ERR_MSG_2));
+        return Err(String::from("Given file not exists."));
+    }
+    if !path.is_file() {
+        return Err(String::from("Given path is not a file."));
     }
     if path.extension() != Some(OsStr::new("bat")) {
-        return Err(String::from(ERR_MSG_3));
+        return Err(String::from("Given file is not a .bat file."));
     }
+    Ok(())
+}
+
+fn get_file_name(path: &Path) -> Result<String, String> {
+    const ERR_MSG: &str = "Could not determine file name.";
+    let str = path.file_name().ok_or(ERR_MSG)?.to_str().ok_or(ERR_MSG)?;
+    let s = String::from(str);
+    Ok(s)
+}
+
+fn run_bat(bat: &str) -> Result<(), String> {
     Command::new("cmd.exe")
         .arg("/c")
-        .raw_arg(format!("\"{}\"", batch)) // This is important, since Rust + cmd.exe do weird escaping stuff!
+        .raw_arg(format!("\"{}\"", bat)) // This is important, since Rust + cmd.exe do weird escaping stuff!
         .spawn()
         .map_err(|err| err.to_string())?;
-
-    let msg_head = "Successfully started batch script";
-    let file_name = match path.file_name() {
-        Some(s) => 
-        None => String::from(format!("{} batch script", msg_head))
-    };
-    Ok(msg)
+    Ok(())
 }

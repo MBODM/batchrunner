@@ -14,7 +14,7 @@ pub fn show_usage() {
     println!();
     println!("Usage: batchrunner.exe \"PATH TO .BAT FILE\"");
     println!();
-    println!("For more information please take a look at https://github.com/mbodm/batchrunner");
+    println!("For more information take a look at https://github.com/mbodm/batchrunner");
 }
 
 pub fn show_error(msg: String) {
